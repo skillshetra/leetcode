@@ -8,29 +8,30 @@ using namespace std;
 
 // Class Solution to Submit in LeetCode //
 class Solution {
-    // Public Class twoSum for solution//
-    public:
-        vector<int> twoSum(vector<int> &nums, int target) {
-            // Create a hash map to store each number's value and its index as we iterate //
-            unordered_map<int, int> map;
-            // Loop through the input vector 'nums' //
-            for (int i = 0; i < nums.size(); i++) {
-                // Calculate the complement: the number we need to find //
-                int complement = target - nums[i];
-                // Check if the complement exists in the map //
-                if (map.find(complement) != map.end()) {
-                    // If it does, we have found the two numbers that add up to target //
-                    // Return their indices: index of the complement and current index //
-                    return {map[complement], i};
-                }
-                // If not found, store the current number and its index in the map //
-                // This will help future elements check for their complement //
-                map[nums[i]] = i;
+public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        // Create a hash map to store the value and its corresponding index //
+        unordered_map<int, int> map;
+
+        // Loop through each element in the input vector //
+        for (int i = 0; i < nums.size(); i++) {
+            // Calculate the complement that would sum with nums[i] to reach the target //
+            int complement = target - nums[i];
+
+            // Check if the complement exists in the map //
+            if (map.find(complement) != map.end()) {
+                // If found, return the indices of the complement and current number //
+                return {map[complement], i};
             }
-            // If the loop completes without returning, no valid pair was found //
-            // (According to problem constraints, this line is rarely reached) //
-            return {};
+
+            // Store the current number and its index in the map //
+            // This allows us to find it later as a complement if needed //
+            map[nums[i]] = i;
         }
+
+        // If no solution is found (though the problem guarantees one), return an empty vector //
+        return {};
+    }
 };
 
 // Main function to pass test case //
