@@ -26,42 +26,35 @@ struct ListNode {
 
 // Class Solution to Submit in LeetCode //
 class Solution {
-    // Public Class twoSum for solution//
-    public:
-        ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-            // Create a dummy head to simplify handling the result list //
-            ListNode* dummyHead = new ListNode();
-            // Pointer to build the result list //
-            ListNode* current = dummyHead;
-            // To keep track of carry from each digit addition //
-            int carry = 0;
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        // Create a dummy node to act as the head of the result list //
+        ListNode* dummy = new ListNode(0);
+        // Tail will always point to the last node in the result list //
+        ListNode* tail = dummy;
+        // Variable to store carry from sum of two digits //
+        int carry = 0;
 
-            // Loop while either list has nodes or there's a remaining carry //
-            while (l1 || l2 || carry) {
-                // Get values from current nodes, or 0 if one list is shorter //
-                int val1 = (l1 ? l1->val : 0);
-                int val2 = (l2 ? l2->val : 0);
+        // Loop until both lists are fully traversed and no carry remains //
+        while (l1 || l2 || carry) {
+            // Calculate sum of current digits and carry //
+            int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;
+            // Update carry for next iteration //
+            carry = sum / 10;
 
-                // Calculate sum of values and carry //
-                int sum = val1 + val2 + carry;
+            // Create new node with digit value (sum modulo 10) and append to result //
+            tail->next = new ListNode(sum % 10);
+            // Move tail pointer to the new last node //
+            tail = tail->next;
 
-                // Update carry for next iteration  //
-                carry = sum / 10;
-
-                // Create a new node with the digit value (sum % 10) //
-                current->next = new ListNode(sum % 10);
-                // Move to the next node in result list //
-                current = current->next;
-
-                // Move to the next nodes in l1 and l2 if available //
-                if (l1) l1 = l1->next;
-                if (l2) l2 = l2->next;
-
-            }
-
-            // Return the next of dummy head, which is the actual result head //
-            return dummyHead->next;
+            // Advance input list pointers if possible //
+            if (l1) l1 = l1->next;
+            if (l2) l2 = l2->next;
         }
+
+        // Return the next node after dummy which is the head of the result list //
+        return dummy->next;
+    }
 };
 
 // Main function to pass test case //
