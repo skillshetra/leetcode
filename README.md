@@ -26,8 +26,10 @@ This repo contains my personal solutions to various coding challenges from [Leet
 | 4   | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)  | Hard       | [`0004_Median_of_Two_Sorted_Arrays-Hard.cpp`](./0004_Median_of_Two_Sorted_Arrays-Hard.cpp) |
 | 5   | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | Medium  | [`0005_Longest_Palindromic_Substring-Medium.cpp`](./0005_Longest_Palindromic_Substring-Medium.cpp) |
 | 6   | [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/)                      | Medium     | [`0006_Zigzag_Conversion-Medium.cpp`](./0006_Zigzag_Conversion-Medium.cpp) |
+| 7   | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)                      | Medium     | [`0007_Reverse_Integer-Medium.cpp`](./0007_Reverse_Integer-Medium.cpp) |
 
 ---
+
 
 ## 📈 Goals
 
